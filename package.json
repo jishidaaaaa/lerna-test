@@ -5,6 +5,7 @@
   "repository": "git@github.com:jishidaaaaa/lerna-test.git",
   "author": "jishidaaaaa <such.a.donkey@gmail.com>",
   "license": "MIT",
+  "private": true,
   "workspaces": [
     "packages/*"
   ],
