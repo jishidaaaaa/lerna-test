@@ -20,8 +20,6 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ steps.node_version.outputs.version }}
-      - name: Set npm Credential
-        run: echo "//npm.pkg.github.com/:_authToken=${{ secrets.GH_ASCEND_PACKAGES_TOKEN }}" >> ~/.npmrc
       - id: current_version
         run: echo "::set-output name=version::$(node -p 'require("./package.json").version')"
       - name: Git Identity
@@ -31,8 +29,6 @@ jobs:
           git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/$GITHUB_REPOSITORY
       - name: Install Dependencies
         run: yarn install --frozen-lockfile
-      - name: Reset npm Credential for publish
-        run: echo "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}" >> ~/.npmrc
       - name: Publish
         run: yarn lerna publish --conventional-commits --no-changelog --yes
         env:
