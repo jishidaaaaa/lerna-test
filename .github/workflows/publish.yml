@@ -14,6 +14,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+        with:
+          persist-credentials: false
       - id: node_version
         run: echo "::set-output name=version::16.x"
       - name: Use Node.js ${{ steps.node_version.outputs.version }}
