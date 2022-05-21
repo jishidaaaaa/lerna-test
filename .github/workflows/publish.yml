@@ -32,7 +32,8 @@ jobs:
       - name: Publish
         run: |
           yarn lerna version --conventional-commits --no-changelog --yes --no-push
-          git push origin update-version
+          git status
+          git push --set-upstream origin update-version
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
