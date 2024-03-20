@@ -6,6 +6,6 @@
   "license": "MIT",
   "dependencies": {
     "test1": "1.0.6",
-    "typescript": "4.8.4"
+    "typescript": "5.4.3"
   }
 }
